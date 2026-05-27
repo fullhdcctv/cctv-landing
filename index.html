@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<!-- saved from url=(0047)file:///C:/Users/user/Downloads/final-v2_9.html -->
-<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ADT캡스 공식 대리점 | 대한민국CCTV 무료 상담</title>
-<link href="file:///C:/Users/user/Downloads/ADT%EC%BA%A1%EC%8A%A4%20%EA%B3%B5%EC%8B%9D%20%EB%8C%80%EB%A6%AC%EC%A0%90%20_%20%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%ADCCTV%20%EB%AC%B4%EB%A3%8C%20%EC%83%81%EB%8B%B4_files/css2" rel="stylesheet">
+
 <style>
 :root {
   --navy: #0b1a3d;
@@ -168,6 +169,7 @@ footer { text-align:center; margin-top:28px; font-size:11px; color:#b0bace; line
     font-weight:900 !important;
   }
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -197,7 +199,7 @@ footer { text-align:center; margin-top:28px; font-size:11px; color:#b0bace; line
 <div class="container">
   <div id="agent-banner"></div>
 
-  <div class="form-card" id="form-card" style="display: none;">
+  <div class="form-card" id="form-card">
     <div class="form-header">
       <div class="form-icon">📋</div>
       <div>
@@ -246,7 +248,7 @@ footer { text-align:center; margin-top:28px; font-size:11px; color:#b0bace; line
             <span class="svc-icon">🌐</span>
             <div class="svc-text">인터넷<small>안정적인 기업용 인터넷 개통</small></div>
           </div>
-          <div class="svc-item on" onclick="toggleSvc(this)" ontouchend="toggleSvc(this);return false;" style="cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;">
+          <div class="svc-item" onclick="toggleSvc(this)" ontouchend="toggleSvc(this);return false;" style="cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;">
             <div class="svc-box"></div>
             <span class="svc-icon">💰</span>
             <div class="svc-text">타사 서비스 이용 만료 — 더 저렴하게!<small>현재 타사 보안 서비스 만료 예정, 비용 절감 희망</small></div>
@@ -260,17 +262,19 @@ footer { text-align:center; margin-top:28px; font-size:11px; color:#b0bace; line
           수집 목적: 보안 상담 및 견적 제공<br>
           보유 기간: 상담 완료 후 1년
         </div>
-        <div class="privacy-row on" id="privacy-row" onclick="togglePrivacy()" ontouchend="togglePrivacy();return false;" style="cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;">
+        <div class="privacy-row" id="privacy-row" onclick="togglePrivacy()" ontouchend="togglePrivacy();return false;" style="cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;">
           <div class="prv-box"></div>
           개인정보 수집·이용에 동의합니다 <span style="color:var(--red)">*</span>
         </div>
       </div>
 
-      <button class="submit-btn" id="submit-btn" onclick="submitForm()" disabled="">전송 중...</button>
+      <button class="submit-btn" id="submit-btn" onclick="submitForm()">
+        🔒 무료 보안 상담 신청하기
+      </button>
     </form>
   </div>
 
-  <div id="success" class="form-card" style="display: block;">
+  <div id="success" class="form-card" style="display:none">
     <div class="success-icon">✓</div>
     <h2>신청이 완료되었습니다!</h2>
     <p>담당 상담사가 영업일 기준 1일 이내<br>연락드리겠습니다.<br><br>ADT캡스 공식 대리점<br>대한민국CCTV를 선택해 주셔서 감사합니다 😊</p>
