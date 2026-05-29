@@ -227,27 +227,27 @@ footer { text-align:center; margin-top:28px; font-size:11px; color:#b0bace; line
       <div class="field">
         <label class="field-label">관심 서비스 <span class="svc-hint">(중복 선택 가능)</span></label>
         <div class="check-group">
-          <div class="svc-item on" onclick="toggleSvc(this)" ontouchend="toggleSvc(this);return false;" style="cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;">
+          <div class="svc-item on" onclick="toggleSvc(this, event)" ontouchend="toggleSvc(this, event);return false;" style="cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;">
             <div class="svc-box"></div>
             <span class="svc-icon">📷🚔</span>
             <div class="svc-text">CCTV 설치 &amp; 출동경비<small>실시간 모니터링 + 24/7 신속 출동</small></div>
           </div>
-          <div class="svc-item" onclick="toggleSvc(this)" ontouchend="toggleSvc(this);return false;" style="cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;">
+          <div class="svc-item" onclick="toggleSvc(this, event)" ontouchend="toggleSvc(this, event);return false;" style="cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;">
             <div class="svc-box"></div>
             <span class="svc-icon">🚪⏱️</span>
             <div class="svc-text">출입통제 &amp; 근태관리<small>안전한 출입 + 직원 근태 자동 관리</small></div>
           </div>
-          <div class="svc-item" onclick="toggleSvc(this)" ontouchend="toggleSvc(this);return false;" style="cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;">
+          <div class="svc-item" onclick="toggleSvc(this, event)" ontouchend="toggleSvc(this, event);return false;" style="cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;">
             <div class="svc-box"></div>
             <span class="svc-icon">🖥️📟</span>
             <div class="svc-text">포스 &amp; 키오스크 &amp; 테이블오더<small>매장 결제·주문 통합 솔루션</small></div>
           </div>
-          <div class="svc-item" onclick="toggleSvc(this)" ontouchend="toggleSvc(this);return false;" style="cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;">
+          <div class="svc-item" onclick="toggleSvc(this, event)" ontouchend="toggleSvc(this, event);return false;" style="cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;">
             <div class="svc-box"></div>
             <span class="svc-icon">🌐</span>
             <div class="svc-text">인터넷<small>안정적인 기업용 인터넷 개통</small></div>
           </div>
-          <div class="svc-item" onclick="toggleSvc(this)" ontouchend="toggleSvc(this);return false;" style="cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;">
+          <div class="svc-item" onclick="toggleSvc(this, event)" ontouchend="toggleSvc(this, event);return false;" style="cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;">
             <div class="svc-box"></div>
             <span class="svc-icon">💰</span>
             <div class="svc-text">타사 서비스 이용 만료 — 더 저렴하게!<small>현재 타사 보안 서비스 만료 예정, 비용 절감 희망</small></div>
@@ -261,7 +261,7 @@ footer { text-align:center; margin-top:28px; font-size:11px; color:#b0bace; line
           수집 목적: 보안 상담 및 견적 제공<br>
           보유 기간: 상담 완료 후 1년
         </div>
-        <div class="privacy-row" id="privacy-row" onclick="togglePrivacy()" ontouchend="togglePrivacy();return false;" style="cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;">
+        <div class="privacy-row" id="privacy-row" onclick="togglePrivacy(event)" ontouchend="togglePrivacy(event);return false;" style="cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;">
           <div class="prv-box"></div>
           개인정보 수집·이용에 동의합니다 <span style="color:var(--red)">*</span>
         </div>
@@ -292,23 +292,13 @@ footer { text-align:center; margin-top:28px; font-size:11px; color:#b0bace; line
 <script>
   var privacyChecked = false;
 
-  // 더블탭/더블클릭으로 선택
-  var svcLastTap = {};
-  var svcTapDelay = 400; // ms 이내 두번 탭
-
-  function toggleSvc(el) {
-    var now = Date.now();
-    var idx = Array.prototype.indexOf.call(el.parentNode.children, el);
-    var last = svcLastTap[idx] || 0;
-    if (now - last < svcTapDelay) {
-      el.classList.toggle('on');
-      svcLastTap[idx] = 0;
-    } else {
-      svcLastTap[idx] = now;
-    }
+  function toggleSvc(el, event) {
+    if (event) { event.preventDefault(); event.stopPropagation(); }
+    el.classList.toggle('on');
   }
 
-  function togglePrivacy() {
+  function togglePrivacy(event) {
+    if (event) { event.preventDefault(); event.stopPropagation(); }
     privacyChecked = !privacyChecked;
     var row = document.getElementById('privacy-row');
     if (privacyChecked) {
