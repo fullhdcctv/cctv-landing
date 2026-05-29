@@ -210,8 +210,8 @@ footer { text-align:center; margin-top:28px; font-size:11px; color:#b0bace; line
     <form id="inquiry-form" onsubmit="return false;">
       <div class="row2">
         <div class="field">
-          <label class="field-label">성함 <span class="req">*</span></label>
-          <input type="text" id="name" placeholder="홍길동">
+          <label class="field-label">성함 (상호) <span class="req">*</span></label>
+          <input type="text" id="name" placeholder="홍길동 / 상호명">
         </div>
         <div class="field">
           <label class="field-label">연락처 <span class="req">*</span></label>
@@ -292,8 +292,20 @@ footer { text-align:center; margin-top:28px; font-size:11px; color:#b0bace; line
 <script>
   var privacyChecked = false;
 
+  // 더블탭/더블클릭으로 선택
+  var svcLastTap = {};
+  var svcTapDelay = 400; // ms 이내 두번 탭
+
   function toggleSvc(el) {
-    el.classList.toggle('on');
+    var now = Date.now();
+    var idx = Array.prototype.indexOf.call(el.parentNode.children, el);
+    var last = svcLastTap[idx] || 0;
+    if (now - last < svcTapDelay) {
+      el.classList.toggle('on');
+      svcLastTap[idx] = 0;
+    } else {
+      svcLastTap[idx] = now;
+    }
   }
 
   function togglePrivacy() {
