@@ -211,18 +211,13 @@ footer { text-align:center; margin-top:28px; font-size:11px; color:#b0bace; line
     <form id="inquiry-form" onsubmit="return false;">
       <div class="row2">
         <div class="field">
-          <label class="field-label">성함 <span class="req">*</span></label>
-          <input type="text" id="name" placeholder="홍길동">
+          <label class="field-label">성함, 상호 <span class="req">*</span></label>
+          <input type="text" id="name" placeholder="홍길동 / ○○상가">
         </div>
         <div class="field">
-          <label class="field-label">상호</label>
-          <input type="text" id="biz-name" placeholder="예: ○○상가, ○○공장">
+          <label class="field-label">연락처 <span class="req">*</span></label>
+          <input type="tel" id="phone" placeholder="010-0000-0000">
         </div>
-      </div>
-
-      <div class="field">
-        <label class="field-label">연락처 <span class="req">*</span></label>
-        <input type="tel" id="phone" placeholder="010-0000-0000">
       </div>
 
       <div class="field">
@@ -263,7 +258,7 @@ footer { text-align:center; margin-top:28px; font-size:11px; color:#b0bace; line
 
       <div class="field" style="margin-top:18px">
         <div class="privacy-box">
-          수집 항목: 성함, 상호, 연락처, 설치 주소<br>
+          수집 항목: 성함, 연락처, 설치 주소<br>
           수집 목적: 보안 상담 및 견적 제공<br>
           보유 기간: 상담 완료 후 1년
         </div>
@@ -329,7 +324,6 @@ footer { text-align:center; margin-top:28px; font-size:11px; color:#b0bace; line
 
   function submitForm() {
     var name = document.getElementById('name').value.trim();
-    var bizName = document.getElementById('biz-name').value.trim();
     var phone = document.getElementById('phone').value.trim();
     var address = document.getElementById('address').value.trim();
 
@@ -350,7 +344,6 @@ footer { text-align:center; margin-top:28px; font-size:11px; color:#b0bace; line
     var payload = {
       agent: agentCode,
       name: name,
-      bizName: bizName,
       phone: phone,
       address: address,
       services: services,
